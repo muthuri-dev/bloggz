@@ -1,0 +1,34 @@
+{
+  "id": "any_id",
+  "name": "Bloggz",
+  "short_name": "Bloggz",
+  "description": "Tech blogging platform.",
+  "icons": [
+    {
+      "src": "./72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait"
+}
