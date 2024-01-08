@@ -43,13 +43,18 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?    @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  followers     Follower[]
+  blogs         Blog[]
+  userComments  Comment[]
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime?  @updatedAt @map("updated_at")
 
   @@map("users")
 }
@@ -61,4 +66,84 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Follower {
+  id        String   @id @default(cuid())
+  follower  Int
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("followers")
+}
+
+model Blog {
+  id           String    @id @default(cuid())
+  title        String    @db.Text
+  content      String    @db.LongText
+  imageUrl     String    @default("https://res.cloudinary.com/dhwehpegh/image/upload/v1704726705/whiteLogo_zevxaf.jpg") @map("image_urls")
+  category     Category  @default(TECH)
+  user         User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String?
+  likes        Like[]
+  tags         Tag[]
+  blogComments Comment[]
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@index([userId])
+}
+
+enum Category {
+  TECH
+  ANDROID
+  AI_ML
+  WEB
+  JOBS
+  STARTUPS
+  UI_UX
+  BOOKS
+  DATABASES
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  like      Int      @map("likes")
+  blog      Blog?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([blogId])
+  @@map("likes")
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  tag       String
+  blog      Blog?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([blogId])
+  @@map("tags")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  comment   String   @db.LongText
+  blog      Blog?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([blogId])
+  @@index([userId])
+  @@map("comments")
 }
