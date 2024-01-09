@@ -68,7 +68,9 @@ type Query{
     blogs:[Blog]
     blog(id:ID!):Blog
     user(id:ID!):User
-    comment(id:ID!):Comment
+    blogComments(blogId:ID!):[Comment]
+    tags(blogId:ID!):[Tag]
+    likes(blogId:ID!):[Like]
 }
 # type Mutation{
 #     createBlog(title:String,content:String,imageUrl:String,category:Category,userId:String):Blog

@@ -11,10 +11,45 @@ export const GET_ALL_BLOGS = gql`
         like
       }
       tags {
+        id
         tag
       }
       category
+      userId
       createdAt
+      blogComments {
+        id
+      }
+    }
+  }
+`;
+export const GET_BLOG_USER = gql`
+  query User($id: ID!) {
+    user(id: $id) {
+      name
+      image
+    }
+  }
+`;
+export const GET_BLOG = gql`
+  query Query($id: ID!) {
+    blog(id: $id) {
+      id
+      title
+      content
+      imageUrl
+      likes {
+        id
+        like
+      }
+      userId
+      createdAt
+      blogComments {
+        id
+        comment
+        userId
+        createdAt
+      }
     }
   }
 `;
