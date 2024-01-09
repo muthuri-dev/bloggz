@@ -5,9 +5,9 @@ import { useQuery } from "@apollo/client";
 import LoadingSkeleton from "@/components/home/LoadingSkeleton";
 import { GET_BLOG } from "@/graphql/queries";
 import Markdown from "@/components/home/Markdown";
-import MarkdownPreview from "@uiw/react-markdown-preview";
 import Comments from "@/components/home/Comments";
 import UserComponent from "@/components/home/UserComponent";
+import Floating from "@/components/home/Floating";
 
 export default function SINGLEBLOG({ params: { blogId } }: TParams) {
   const { data, loading, error } = useQuery(GET_BLOG, {
@@ -56,6 +56,9 @@ export default function SINGLEBLOG({ params: { blogId } }: TParams) {
       <div>
         <Comments blogId={blogId} />
       </div>
+      <section className="sticky bottom-3 flex justify-center content-center w-full h-16 z-40">
+        <Floating />
+      </section>
     </div>
   );
 }
