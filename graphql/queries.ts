@@ -53,3 +53,13 @@ export const GET_BLOG = gql`
     }
   }
 `;
+export const GET_COMMENTS = gql`
+  query Comments {
+    comments {
+      id
+      userId
+      blogId
+      comment
+    }
+  }
+`;

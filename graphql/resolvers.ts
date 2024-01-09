@@ -22,13 +22,9 @@ export const resolvers = {
         },
       });
     },
-    // comment: async (_parent: any, args: any, context: Context) => {
-    //   return await context.prisma.comment.findUnique({
-    //     where: {
-    //       id: args.id,
-    //     },
-    //   });
-    // },
+    comments: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.comment.findMany();
+    },
   },
   Blog: {
     tags: async (parent: any, _args: any, context: Context) => {

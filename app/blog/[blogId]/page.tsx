@@ -4,14 +4,16 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import LoadingSkeleton from "@/components/home/LoadingSkeleton";
 import { GET_BLOG } from "@/graphql/queries";
-import ReactMarkdown from "react-markdown";
+import Markdown from "@/components/home/Markdown";
+import MarkdownPreview from "@uiw/react-markdown-preview";
+import Comments from "@/components/home/Comments";
+import UserComponent from "@/components/home/UserComponent";
 
 export default function SINGLEBLOG({ params: { blogId } }: TParams) {
   const { data, loading, error } = useQuery(GET_BLOG, {
     variables: { id: blogId },
   });
-  const markdown = `**About Apple:** Apple is a components of our applications, working closely with a team of world-class engineers and designers. **Key Responsibilities:** - Develop, test, and maintain robust, scalable, high-quality software for our technology products.`;
-  console.log(data?.blog?.content);
+  const markdown = data?.blog?.content;
   if (loading)
     return (
       <div>
@@ -40,19 +42,20 @@ export default function SINGLEBLOG({ params: { blogId } }: TParams) {
                 href="#"
                 className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out"
               >
-                {/* <User userId={data?.blog.userId} /> */}
+                <UserComponent userId={data?.blog.userId} />
               </a>
             </p>
+
             <blockquote className="border-l-4 text-base font-thin leading-8 my-5 p-5">
-              <ReactMarkdown>
-                {/* {data?.blog.content} */}
-                {markdown}
-              </ReactMarkdown>
+              {markdown && <Markdown>{markdown}</Markdown>}
+              {/* <MarkdownPreview source={markdown} /> */}
             </blockquote>
           </div>
         </div>
       </div>
-      <div>{/* <Comments blogId={id} /> */}</div>
+      <div>
+        <Comments blogId={blogId} />
+      </div>
     </div>
   );
 }
