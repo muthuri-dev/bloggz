@@ -1,16 +1,10 @@
-import { auth } from "@/auth";
+import { auth, signIn } from "@/auth";
 import ButtonComponent from "@/components/home/ButtonComponent";
+import Button from "@/components/ui/Button";
 import React from "react";
 
 export default async function Home() {
   const session = await auth();
-
-  if (!session)
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-between p-24">
-        Please Login
-      </div>
-    );
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -25,10 +19,23 @@ export default async function Home() {
           <p className="text-gray-700 text-center mb-3">
             Tech Stories That Ignite Your Imagination. Start Writing Yours!
           </p>
-          <ButtonComponent />
+          {session ? (
+            <ButtonComponent />
+          ) : (
+            <form
+              action={async () => {
+                "use server";
+                await signIn();
+              }}
+            >
+              <Button type="solid">Login! to start</Button>
+            </form>
+          )}
         </section>
         <div className="flex justify-center items-center flex-col">
-          <h1 className="font-thin underline text-lg">Trending on Tech</h1>
+          <h1 className="font-thin underline text-lg">
+            Open Source Contributers
+          </h1>
         </div>
       </div>
     </main>

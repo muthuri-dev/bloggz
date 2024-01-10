@@ -2,22 +2,22 @@ export const Navigation = [
   {
     id: 1,
     value: "Our story",
-    url: "/",
+    url: "/our-story",
   },
   {
     id: 2,
     value: "Our services",
-    url: "/",
+    url: "/our-services",
   },
   {
     id: 3,
     value: "About us",
-    url: "/",
+    url: "/about",
   },
   {
     id: 4,
     value: "Write",
-    url: "#",
+    url: "/write",
   },
 ];
 
