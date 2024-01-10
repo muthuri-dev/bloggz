@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between md:pl-16 md:pr-16 pt-3 pb-3 items-center z-30 shadow-md rounded-2xl sticky w-full top-0 bg-opacity-80 bg-white ">
-      <div>
+      <div onClick={() => route.push("/")}>
         <Image
           src="/whiteLogo-removebg.png"
           height={60}
