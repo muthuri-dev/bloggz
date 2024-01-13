@@ -28,7 +28,7 @@ export default function Blog({ blog }: IBlogProps) {
               src={person.image}
               width={40}
               height={40}
-              alt={person?.name || ""}
+              alt={person.name!}
               className="rounded-lg"
             />
             <div className=" flex flex-col">

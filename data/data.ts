@@ -1,13 +1,18 @@
 export const Navigation = [
   {
+    id: 0,
+    value: "Home",
+    url: "/",
+  },
+  {
     id: 1,
     value: "Our story",
     url: "/our-story",
   },
   {
     id: 2,
-    value: "Our services",
-    url: "/our-services",
+    value: "Blogs",
+    url: "/blogs",
   },
   {
     id: 3,

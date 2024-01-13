@@ -63,3 +63,10 @@ export const GET_COMMENTS = gql`
     }
   }
 `;
+export const GET_USER_BY_EMAIL = gql`
+  query Query($email: String) {
+    userByEmail(email: $email) {
+      id
+    }
+  }
+`;
