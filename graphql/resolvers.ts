@@ -18,7 +18,7 @@ export const resolvers = {
     user: async (_parent: any, args: any, context: Context) => {
       return await context.prisma.user.findUnique({
         where: {
-          email: args.email,
+          id: args.id,
         },
       });
     },
