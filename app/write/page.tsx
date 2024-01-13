@@ -25,7 +25,7 @@ export default async function TextEditor() {
   }
   return (
     <div>
-      <Editor />
+      <Editor session={session} />
     </div>
   );
 }

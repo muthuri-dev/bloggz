@@ -18,12 +18,19 @@ export const resolvers = {
     user: async (_parent: any, args: any, context: Context) => {
       return await context.prisma.user.findUnique({
         where: {
-          id: args.id,
+          email: args.email,
         },
       });
     },
     comments: async (_parent: any, args: any, context: Context) => {
       return await context.prisma.comment.findMany();
+    },
+    userByEmail: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.user.findUnique({
+        where: {
+          email: args.email,
+        },
+      });
     },
   },
   Blog: {
@@ -45,6 +52,19 @@ export const resolvers = {
       return await context.prisma.like.findMany({
         where: {
           blogId: parent.id,
+        },
+      });
+    },
+  },
+  Mutation: {
+    createBlog: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.blog.create({
+        data: {
+          userId: args.userId,
+          title: args.title,
+          content: args.content,
+          imageUrl: args.imageUrl,
+          category: args.category,
         },
       });
     },

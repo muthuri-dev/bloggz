@@ -9,7 +9,12 @@ import { IBlogs } from "@/types";
 
 export default function Blogs() {
   const { data, loading, error } = useQuery(GET_ALL_BLOGS);
-  if (error) return <p>Error:{error.message}</p>;
+  if (error)
+    return (
+      <p className="flex justify-center items-center h-[80%] animate-ping">
+        Server Error
+      </p>
+    );
   const blogs: IBlogs[] = data?.blogs;
   return (
     <div>
