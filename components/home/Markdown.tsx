@@ -1,34 +1,3 @@
-// import React from "react";
-// import ReactMarkdown from "react-markdown";
-
-// interface IMarkdownProps {
-//   markdown: string;
-// }
-
-// export default function Markdown({ markdown }: IMarkdownProps) {
-//   return (
-//     <blockquote className="border-l-4 text-base font-thin leading-8 my-5 p-5">
-//       <ReactMarkdown>{markdown}</ReactMarkdown>
-//     </blockquote>
-//   );
-// }
-
-// import React from "react";
-// import ReactMarkdown from "react-markdown";
-
-// interface IMarkdownProps {
-//   markdown: string;
-// }
-
-// const Markdown: React.FC<IMarkdownProps> = ({ markdown }) => {
-//   return (
-//     <div className="prose">
-//       <ReactMarkdown>{markdown}</ReactMarkdown>
-//     </div>
-//   );
-// };
-
-// export default Markdown;
 "use client";
 import ReactMarkdown from "react-markdown";
 

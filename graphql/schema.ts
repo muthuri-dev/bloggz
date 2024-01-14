@@ -76,14 +76,14 @@ type Query{
 }
 type Mutation{
     createBlog(userId:String,title:String,content:String,imageUrl:String,category:Category):Blog
-    # addLike(like:Int,blogId:String):Like
-    # createComment(comment:String,blogId:String):Comment
+    addLike(like:Int,blogId:String):Like
+    createComment(comment:String,blogId:String):Comment
     # createTag(tag:String,blogId:String):Tag
     # addFollower(follower:Int,userId:String):Follower
     # updateBlog(id:ID!,title:String,content:String,imageUrl:String,category:Category):Blog
     # updateComment(id:ID!,comment:String):Comment
     # deleteBlog(id:ID!):Blog
-    # deleteLike(id:ID!):Like
+    deleteLike(id:ID!):Like
     # deleteComment(id:ID!):Comment
     # deleteTag(id:ID!):Tag
     # deleteFollower(id:ID!):Follower

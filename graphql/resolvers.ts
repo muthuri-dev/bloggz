@@ -68,5 +68,28 @@ export const resolvers = {
         },
       });
     },
+    createComment: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.comment.create({
+        data: {
+          blogId: args.blogId,
+          comment: args.comment,
+        },
+      });
+    },
+    addLike: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.like.create({
+        data: {
+          blogId: args.blogId,
+          like: args.like,
+        },
+      });
+    },
+    deleteLike: async (_parent: any, args: any, context: Context) => {
+      return context.prisma.like.delete({
+        where: {
+          id: args.id,
+        },
+      });
+    },
   },
 };
