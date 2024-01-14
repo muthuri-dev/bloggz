@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,6 +17,7 @@
     "@blocknote/react": "^0.11.0",
     "@prisma/client": "^5.7.1",
     "@uiw/react-markdown-preview": "^5.0.7",
+    "axios": "^1.6.5",
     "lucide-react": "^0.307.0",
     "markdown-to-jsx": "^7.4.0",
     "next": "14.0.4",
