@@ -11,7 +11,7 @@ export default function Blogs() {
   const { data, loading, error } = useQuery(GET_ALL_BLOGS);
   if (error)
     return (
-      <p className="flex justify-center items-center h-[80%] animate-ping">
+      <p className="flex justify-center items-center h-[80%] animate-ping ">
         Server Error
       </p>
     );
