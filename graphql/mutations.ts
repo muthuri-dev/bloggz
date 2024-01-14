@@ -20,8 +20,8 @@ export const CREATE_BLOG = gql`
   }
 `;
 export const CREATE_COMMENT = gql`
-  mutation Mutation($blogId: String, $comment: String) {
-    createComment(blogId: $blogId, comment: $comment) {
+  mutation Mutation($blogId: String, $comment: String, $userId: String) {
+    createComment(blogId: $blogId, comment: $comment, userId: $userId) {
       id
     }
   }

@@ -73,6 +73,7 @@ export const resolvers = {
         data: {
           blogId: args.blogId,
           comment: args.comment,
+          userId: args.userId,
         },
       });
     },
