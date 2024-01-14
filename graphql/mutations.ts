@@ -19,3 +19,17 @@ export const CREATE_BLOG = gql`
     }
   }
 `;
+export const CREATE_COMMENT = gql`
+  mutation Mutation($blogId: String, $comment: String) {
+    createComment(blogId: $blogId, comment: $comment) {
+      id
+    }
+  }
+`;
+export const ADD_LIKE = gql`
+  mutation Mutation($like: Int, $blogId: String) {
+    addLike(like: $like, blogId: $blogId) {
+      id
+    }
+  }
+`;

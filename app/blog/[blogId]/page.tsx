@@ -48,7 +48,6 @@ export default function SINGLEBLOG({ params: { blogId } }: TParams) {
 
             <blockquote className="border-l-4 text-base font-thin leading-8 my-5 p-5">
               {markdown && <Markdown>{markdown}</Markdown>}
-              {/* <MarkdownPreview source={markdown} /> */}
             </blockquote>
           </div>
         </div>
@@ -57,7 +56,7 @@ export default function SINGLEBLOG({ params: { blogId } }: TParams) {
         <Comments blogId={blogId} />
       </div>
       <section className="sticky bottom-3 flex justify-center content-center w-full h-16 z-40">
-        <Floating />
+        <Floating blogId={blogId} />
       </section>
     </div>
   );
