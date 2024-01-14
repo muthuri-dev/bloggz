@@ -16,7 +16,7 @@ export default function Floating({ blogId }: { blogId: string }) {
     }
   }, [addLike, blogId, like]);
   return (
-    <div className=" flex flex-row justify-center items-center w-4/12 rounded-2xl gap-5 bg-white bg-opacity-70 border border-black">
+    <div className=" flex flex-row justify-center items-center w-full md:w-4/12 rounded-2xl gap-5 bg-white bg-opacity-70 border border-black">
       <div>
         <Heart onClick={AddLike} className="cursor-pointer" />
       </div>
