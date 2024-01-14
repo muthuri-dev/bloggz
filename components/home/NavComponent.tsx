@@ -7,6 +7,7 @@ import { Navigation } from "@/data/data";
 import { useRouter } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Session } from "next-auth";
+import useSessionStore from "@/store/useSessionStore";
 
 const NavComponent = ({ session }: { session: Session }) => {
   const [active, setActive] = React.useState(Navigation[0].id);
@@ -21,6 +22,14 @@ const NavComponent = ({ session }: { session: Session }) => {
   };
   //navigation router
   const route = useRouter();
+
+  //sending session to store
+  const sessionStore = useSessionStore();
+  React.useEffect(() => {
+    if (sessionStore.session !== session) {
+      sessionStore.setSession(session);
+    }
+  }, [session, sessionStore]);
 
   return (
     <div className="flex justify-between items-center w-full ">

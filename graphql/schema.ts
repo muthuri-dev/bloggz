@@ -77,7 +77,7 @@ type Query{
 type Mutation{
     createBlog(userId:String,title:String,content:String,imageUrl:String,category:Category):Blog
     addLike(like:Int,blogId:String):Like
-    createComment(comment:String,blogId:String):Comment
+    createComment(comment:String,blogId:String,userId:String):Comment
     # createTag(tag:String,blogId:String):Tag
     # addFollower(follower:Int,userId:String):Follower
     # updateBlog(id:ID!,title:String,content:String,imageUrl:String,category:Category):Blog
