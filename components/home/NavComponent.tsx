@@ -41,7 +41,7 @@ const NavComponent = ({ session }: { session: Session }) => {
               onClick={() => setActive(nav.id)}
               className={
                 nav.id === active
-                  ? "bg-blue-600 py-2 px-4 font-thin rounded-2xl hover:text-white"
+                  ? "bg-blue-600 py-2 px-4 font-thin rounded-2xl text-white hover:bg-blue-400"
                   : "underline font-mono hover:no-underline"
               }
             >
@@ -55,8 +55,17 @@ const NavComponent = ({ session }: { session: Session }) => {
           </Button>
           {toggle && (
             <div className="min-w-screen h-screen animated fadeIn faster right-0-0 top-0 flex justify-end  inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover">
-              <div className="absolute bg-black inset-0 z-0 text-white flex justify-end">
-                navigation menu
+              <div className="absolute bg-black inset-0 z-0 text-white flex flex-col items-end gap-5 p-5">
+                {Navigation.map((nav: any) => (
+                  <ul key={nav.id}>
+                    <li>
+                      <a href={nav.url}>{nav.value}</a>
+                    </li>
+                  </ul>
+                ))}
+                <Button type="solid" method={() => route.push("/blogs")}>
+                  close
+                </Button>
               </div>
             </div>
           )}
