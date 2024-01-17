@@ -51,7 +51,7 @@ const NavComponent = ({ session }: { session: Session }) => {
               className={
                 nav.id === active
                   ? "bg-blue-600 py-2 px-4 font-thin rounded-2xl text-white hover:bg-blue-400"
-                  : "hover:underline font-mono hover:no-underline"
+                  : "hover:underline font-mono"
               }
             >
               {nav.value}
