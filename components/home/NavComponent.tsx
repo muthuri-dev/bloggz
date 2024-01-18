@@ -87,7 +87,16 @@ const NavComponent = ({ session }: { session: Session }) => {
         /> */}
         <div>
           {session ? (
-            <Button type="outline">{session.user?.name}</Button>
+            // <Button type="outline">{session.user?.name}</Button>
+            session.user?.image && (
+              <Image
+                src={session.user?.image}
+                alt="user"
+                width={40}
+                height={40}
+                className="rounded-full mr-3 md:mr-0"
+              />
+            )
           ) : (
             <Button type="outline" method={openModal}>
               Get Started
