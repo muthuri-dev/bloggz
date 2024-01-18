@@ -1,5 +1,6 @@
 import { auth, signIn } from "@/auth";
 import ButtonComponent from "@/components/home/ButtonComponent";
+import Contributors from "@/components/home/Contributors";
 import Button from "@/components/ui/Button";
 import React from "react";
 
@@ -36,6 +37,9 @@ export default async function Home() {
           <h1 className="font-thin underline text-lg">
             Open Source Contributers
           </h1>
+          <div className="w-full">
+            <Contributors />
+          </div>
         </div>
       </div>
     </main>
