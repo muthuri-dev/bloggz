@@ -15,7 +15,7 @@ interface BlockNoteComponentProps {
 }
 
 function BlockNoteComponent({ setMarkdown }: BlockNoteComponentProps) {
-  const route= useRouter();
+  
   const editor: BlockNoteEditor = useBlockNote({
     onEditorContentChange: (editor) => {
       const saveBlocksAsMarkdown = async () => {
