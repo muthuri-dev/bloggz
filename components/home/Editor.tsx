@@ -8,7 +8,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { Session } from "next-auth";
 import { GET_USER_BY_EMAIL } from "@/graphql/queries";
 import { CREATE_BLOG } from "@/graphql/mutations";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface BlockNoteComponentProps {
   setMarkdown: (value: string) => void;
@@ -33,7 +33,7 @@ function BlockNoteComponent({ setMarkdown }: BlockNoteComponentProps) {
 export default function Editor({ session }: { session: Session }) {
   const [markdown, setMarkdown] = useState<string>("");
   const [isClient, setIsClient] = useState(false);
-
+  const route = useRouter();
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -64,7 +64,7 @@ export default function Editor({ session }: { session: Session }) {
     setImageUrl("");
     setMarkdown("");
     setCategory("TECH");
-    redirect("/blogs");
+    route.push("/blogs");
   };
 
   return (
