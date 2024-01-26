@@ -98,9 +98,7 @@ const NavComponent = ({ session }: { session: Session }) => {
               />
             )
           ) : (
-            <Button type="outline" method={openModal}>
-              Get Started
-            </Button>
+            <></>
           )}
 
           {/* {isModalOpen && <Profile onClose={closeModal} />} */}

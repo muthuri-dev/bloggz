@@ -34,7 +34,7 @@ function BlockNoteComponent({ setMarkdown }: BlockNoteComponentProps) {
 export default function Editor({ session }: { session: Session }) {
   const [markdown, setMarkdown] = useState<string>("");
   const [isClient, setIsClient] = useState(false);
-
+  const route = useRouter();
   useEffect(() => {
     setIsClient(true);
   }, []);
