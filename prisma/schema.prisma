@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL")
   // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
   relationMode = "prisma"
@@ -83,7 +83,7 @@ model Follower {
 model Blog {
   id           String    @id @default(cuid())
   title        String    @db.Text
-  content      String    @db.LongText
+  content      String    @db.Xml
   imageUrl     String    @default("https://res.cloudinary.com/dhwehpegh/image/upload/v1704726705/whiteLogo_zevxaf.jpg") @map("image_urls")
   category     Category  @default(TECH)
   user         User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -135,7 +135,7 @@ model Tag {
 
 model Comment {
   id        String   @id @default(cuid())
-  comment   String   @db.LongText
+  comment   String   @db.Xml
   blog      Blog?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
   blogId    String?
   user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
