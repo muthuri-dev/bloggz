@@ -1,8 +1,5 @@
-const withMDX = require("@next/mdx")();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions` to include MDX files
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
       {
@@ -26,4 +23,3 @@ const withPWA = require("next-pwa")({
 
 // Export the combined configuration for Next.js with PWA support
 module.exports = withPWA(nextConfig);
-module.exports = withMDX(nextConfig);
