@@ -15,6 +15,8 @@ Bloggz is a next-generation for teaching developers how to contribute to open so
 
 ## Getting Started on localhost
 
+## Getting Started
+
 First, run the development server:
 
 ```bash
