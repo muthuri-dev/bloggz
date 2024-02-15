@@ -19,7 +19,6 @@
     "@blocknote/react": "^0.11.0",
     "@ckeditor/ckeditor5-code-block": "^41.0.0",
     "@prisma/client": "^5.7.1",
-    "@types/mdx": "^2.0.11",
     "@uiw/react-markdown-preview": "^5.0.7",
     "axios": "^1.6.5",
     "lucide-react": "^0.307.0",
