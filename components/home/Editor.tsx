@@ -15,6 +15,7 @@ interface BlockNoteComponentProps {
 }
 
 function BlockNoteComponent({ setMarkdown }: BlockNoteComponentProps) {
+  
   const editor: BlockNoteEditor = useBlockNote({
     onEditorContentChange: (editor) => {
       const saveBlocksAsMarkdown = async () => {
@@ -33,7 +34,7 @@ function BlockNoteComponent({ setMarkdown }: BlockNoteComponentProps) {
 export default function Editor({ session }: { session: Session }) {
   const [markdown, setMarkdown] = useState<string>("");
   const [isClient, setIsClient] = useState(false);
-  const route = useRouter();
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -46,8 +47,7 @@ export default function Editor({ session }: { session: Session }) {
   const [title, setTitle] = React.useState<string>("");
   const [imageUrl, setImageUrl] = React.useState<string>("");
   const [category, setCategory] = React.useState<string>("TECH");
-
-  console.log(email?.userByEmail);
+    const route = useRouter();
   const submitData = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (title === "") return alert("Enter fields");
