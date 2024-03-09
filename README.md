@@ -10,7 +10,7 @@
 
 Bloggz is a next-generation for teaching developers how to contribute to open source, written in Next js. It consists of 2 major parts:
 
-- [**Frontend:**]() Built with React js and next js with zustand as the state management library
+- [**Frontend:**]() Built with React js and next js, tailwindcss for styling and zustand as the state management library
 - [**Backend:**]() Built with graphql api endpoints and postgress database
 
 ## Getting Started on localhost
